@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+
+<body>
+    <h2>Monthly Income vs Expenses Report</h2>
+    <h3>Income</h3>
+    <ul>
+        {% for item in income_by_month %}
+        <li>{{ item.month }}: {{ item.total_amount }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Expenses</h3>
+    <ul>
+        {% for item in expense_by_month %}
+        <li>{{ item.month }}: {{ item.total_amount }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

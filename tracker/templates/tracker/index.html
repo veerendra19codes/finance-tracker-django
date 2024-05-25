@@ -1,0 +1,41 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        padding: 0px 20px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .add-income {
+        background-color: blue;
+        border-radius: 10px;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        text-decoration: none;
+
+    }
+
+    .add-expense {
+        background-color: red;
+        border-radius: 10px;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        text-decoration: none;
+    }
+</style>
+<h2>Overall Summary</h2>
+<p>Total Income: Rs.{{ all_income }}</p>
+<p>Total Expenses: Rs.{{ all_expenses }}</p>
+<p>Total Savings: Rs.{{ all_savings }}</p>
+<a href="{% url 'add_income' %}" class="add-income">Add Income</a>
+<a href="{% url 'add_expense' %}" class="add-expense">Add Expense</a>
+
+{% endblock %}

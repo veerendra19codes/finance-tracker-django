@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Basic styling for the navbar */
+        nav {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            width: full;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        nav a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        #logout-form {
+            background-color: red;
+            color: white;
+        }
+
+        .btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 15px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <!-- <a href="{% url 'profile' %}">Profile</a> -->
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'all_incomes' %}">All Incomes</a>
+        <a href="{% url 'all_expenses' %}">All Expenses</a>
+        <a href="{% url 'add_income' %}">Add Income</a>
+        <a href="{% url 'add_expense' %}">Add Expense</a>
+
+        <a href="{% url 'add_budget' %}">Add Budget</a>
+        <a href="{% url 'budget_progress' %}">Budget Progress</a>
+        {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" id="logout-form">
+            {% csrf_token %}
+            <button type="submit" class="btn">Logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </nav>
+    <!-- {% load static %} -->
+    <!-- <script src="{% static 'tracker/script.js' %}"></script> -->
+
+    {% block content %}
+    {% endblock %}
+</body>
+<script src="{% static 'tracker/script.js' %}"></script>
+
+</html>

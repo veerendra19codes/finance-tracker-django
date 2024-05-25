@@ -1,0 +1,63 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}Add Budget{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    .add-budget {
+        text-align: center;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+    }
+
+    form label {
+        display: block;
+        text-align: start;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    form .add-budget-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    form button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+<h2>Add Budget</h2>
+<form method="post" class="add-budget">
+    {% csrf_token %}
+    <!-- {{ form.as_p }} -->
+    <label for="id_category">Category:</label>
+    {{ form.category }}
+    <label for="id_limit">Limit:</label>
+    {{ form.limit }}
+    <button type="submit" class="add-budget-btn">Add Budget</button>
+</form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}All Expenses{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    li {
+        width: 350px;
+        height: 150px;
+        border: 2px solid gray;
+        border-radius: 10px;
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    li .buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .edit-expense-btn {
+        background-color: blue;
+        border-radius: 10px;
+        padding: 10px 0px;
+        color: white;
+        width: 45%;
+        border: none;
+    }
+
+    .delete-expense-btn {
+        background-color: red;
+        border-radius: 10px;
+        padding: 10px 0px;
+        color: white;
+        width: 45%;
+        border: none;
+    }
+</style>
+<h2>All Expenses</h2>
+<ul id="expense-list">
+    {% for expense in all_expenses %}
+    <li>
+        <div class="item">
+            <strong>Title:</strong> {{ expense.title}}
+        </div>
+
+        <div class="item">
+            <strong>Description:</strong> {{ expense.description }}
+        </div>
+
+        <div class="item">
+            <strong>Amount:</strong> ${{ expense.amount }}<br>
+        </div>
+
+        <div class="item">
+            <strong>Date:</strong> {{ expense.date }}<br>
+        </div>
+
+        <div class="item">
+            <strong>Category:</strong> {{ expense.category }}<br>
+        </div>
+
+        <div class="buttons">
+
+            <button class="edit-expense-btn" data-id="{{ expense.id }}">Update</button>
+            <button class="delete-expense-btn" data-id="{{ expense.id }}">Delete</button>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

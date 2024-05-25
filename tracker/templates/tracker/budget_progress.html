@@ -1,0 +1,56 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}Budget Progress{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    li {
+        width: 350px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 10px 10px;
+        border: 2px solid purple;
+        border-radius: 15px;
+    }
+
+    li strong {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    li label {
+        font-weight: bold;
+    }
+</style>
+<h2>Budget Progress</h2>
+<ul>
+    {% for item in budget_status %}
+    <li>
+        <strong>{{ item.category }}</strong>
+        <div>
+
+            <label>Spent</label>: {{ item.spent }} / {{ item.limit }}
+        </div>
+        <div>
+
+            <label>Remaining</label>: {{item.remaining}}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+
+{% endblock %}

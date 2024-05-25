@@ -1,0 +1,90 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}All Incomes{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    li {
+        width: 350px;
+        height: 150px;
+        border: 2px solid gray;
+        border-radius: 10px;
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    li .buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .edit-income-btn {
+        background-color: blue;
+        border-radius: 10px;
+        padding: 10px 0px;
+        color: white;
+        width: 45%;
+        border: none;
+    }
+
+    .delete-income-btn {
+        background-color: red;
+        border-radius: 10px;
+        padding: 10px 0px;
+        color: white;
+        width: 45%;
+        border: none;
+    }
+</style>
+<h2>All Incomes</h2>
+<ul id="income-list">
+    {% for income in all_incomes %}
+    <li>
+
+        <div class="item">
+            <strong>Title:</strong> {{ income.title}}
+        </div>
+
+        <div class="item">
+            <strong>Description:</strong> {{ income.description }}
+        </div>
+
+        <div class="item">
+            <strong>Amount:</strong> ${{ income.amount }}<br>
+        </div>
+
+        <div class="item">
+            <strong>Date:</strong> {{ income.date }}<br>
+        </div>
+
+        <div class="item">
+            <strong>Category:</strong> {{ income.source }}<br>
+        </div>
+
+        <div class="buttons">
+
+            <button class="edit-income-btn" data-id="{{ income.id }}">Update</button>
+            <button class="delete-income-btn" data-id="{{ income.id }}">Delete</button>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
