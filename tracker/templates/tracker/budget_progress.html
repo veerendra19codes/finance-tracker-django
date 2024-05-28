@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        /* Use Roboto font */
+        background-color: #121212;
+        /* Dark background */
+        color: #e0e0e0;
+        /* Light text color */
+        padding: 20px;
+        /* Added padding for better spacing */
+    }
+
     h2 {
         text-align: center;
+        color: #ffffff;
+        /* White color for the heading */
+        margin-bottom: 20px;
+        font-weight: 500;
     }
 
     ul {
@@ -21,18 +36,30 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        padding: 10px 10px;
-        border: 2px solid purple;
+        padding: 20px;
+        border: 2px solid #6a1b9a;
+        /* Purple border */
         border-radius: 15px;
+        background-color: #1e1e1e;
+        /* Dark background */
     }
 
     li strong {
         font-size: 25px;
         margin-bottom: 15px;
+        color: #e0e0e0;
+        /* Light text color for category */
     }
 
     li label {
         font-weight: bold;
+        color: #ffffff;
+        /* White text color */
+    }
+
+    li div {
+        margin-top: 10px;
+        /* Added margin for better spacing */
     }
 </style>
 <h2>Budget Progress</h2>

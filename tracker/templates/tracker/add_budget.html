@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        /* Use Roboto font */
+        background-color: #121212;
+        /* Dark background */
+        color: #e0e0e0;
+        /* Light text color */
+        padding: 20px;
+        /* Added padding for better spacing */
+    }
+
     h2 {
         text-align: center;
+        color: #ffffff;
+        /* White color for the heading */
+        margin-bottom: 20px;
+        font-weight: 500;
     }
 
     .add-budget {
@@ -15,7 +30,8 @@
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        background-color: #f8f9fa;
+        background-color: #1e1e1e;
+        /* Dark background */
     }
 
     form label {
@@ -23,16 +39,23 @@
         text-align: start;
         margin-bottom: 5px;
         font-weight: bold;
+        color: #e0e0e0;
+        /* Light text color for labels */
     }
 
     form input[type="text"],
-    form input[type="number"] {
+    form input[type="number"],
+    form select {
         width: 100%;
         padding: 8px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
+        background-color: #fff;
+        /* Light background color for form fields */
+        color: #333;
+        /* Dark text color for form fields */
     }
 
     form .add-budget-btn {
@@ -44,7 +67,7 @@
         cursor: pointer;
     }
 
-    form button[type="submit"]:hover {
+    form .add-budget-btn:hover {
         background-color: #0056b3;
     }
 </style>

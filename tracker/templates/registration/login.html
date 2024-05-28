@@ -6,21 +6,33 @@
     <title>Login</title>
     <style>
         body {
-            text-align: center;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #121212;
+            /* Dark background */
+            color: #e0e0e0;
+            /* Light text color */
+            padding: 20px;
         }
 
         h2 {
             text-align: center;
+            color: #ffffff;
+            /* White color for the heading */
+            margin-bottom: 20px;
+            font-weight: 500;
         }
 
-        form {
+        .login {
             text-align: center;
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #333;
+            /* Dark border */
             border-radius: 5px;
-            background-color: #f8f9fa;
+            background-color: #1e1e1e;
+            /* Dark background */
+
         }
 
         form label {
@@ -28,6 +40,8 @@
             text-align: start;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #ffffff;
+            /* White color for labels */
         }
 
         form input[type="text"],
@@ -35,23 +49,21 @@
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #333;
+            /* Dark border */
             border-radius: 5px;
             box-sizing: border-box;
+            background-color: #fff;
+            /* Dark background */
+            color: #333;
+
+            /* White color for text */
         }
 
-        form textarea {
-            width: 100%;
-            height: 40px;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
 
         form .submit {
             background-color: #007bff;
+            /* Blue color for button */
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -61,6 +73,39 @@
 
         form button[type="submit"]:hover {
             background-color: #0056b3;
+            /* Darker blue on hover */
+        }
+
+        .link {
+            color: #fff;
+        }
+
+        .link:hover {
+            color: #007bff;
+        }
+
+        ul {
+            text-align: center;
+            padding-inline-start: 0px;
+        }
+
+        .errorlist li {
+            color: #ff4d4d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            list-style-type: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group .errorlist {
+            margin-top: 5px;
+        }
+
+        .form-group input:invalid {
+            border-color: #ff4d4d;
         }
     </style>
 </head>
@@ -71,7 +116,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="submit">Login</button>
-        <p>New user? <a href="{% url 'register' %}">Create an account</a></p>
+        <p>New user? <a href="{% url 'register' %}" class="link">Create an account</a></p>
     </form>
 </body>
 

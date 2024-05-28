@@ -6,21 +6,33 @@
     <title>Register</title>
     <style>
         body {
-            text-align: center;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #121212;
+            /* Dark background */
+            color: #e0e0e0;
+            /* Light text color */
+            padding: 20px;
         }
 
         h2 {
             text-align: center;
+            color: #ffffff;
+            /* White color for the heading */
+            margin-bottom: 20px;
+            font-weight: 500;
         }
 
-        form {
+        .register {
             text-align: center;
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #333;
+            /* Dark border */
             border-radius: 5px;
-            background-color: #f8f9fa;
+            background-color: #1e1e1e;
+            /* Dark background */
+
         }
 
         form label {
@@ -28,6 +40,8 @@
             text-align: start;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #ffffff;
+            /* White color for labels */
         }
 
         form input[type="text"],
@@ -35,13 +49,21 @@
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #333;
+            /* Dark border */
             border-radius: 5px;
             box-sizing: border-box;
+            background-color: #fff;
+            /* Dark background */
+            color: #333;
+
+            /* White color for text */
         }
+
 
         form .submit {
             background-color: #007bff;
+            /* Blue color for button */
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -51,31 +73,55 @@
 
         form button[type="submit"]:hover {
             background-color: #0056b3;
+            /* Darker blue on hover */
         }
 
-        form p.help_text {
-            color: blue;
-            font-size: 12px;
-            margin-top: 5px;
-            text-decoration: none;
+        .link {
+            color: #fff;
+        }
+
+        .link:hover {
+            color: #007bff;
+        }
+
+        ul {
+            text-align: start;
+            padding-inline-start: 0px;
+        }
+
+        ul li {
             list-style-type: none;
         }
 
-        form p.error {
-            color: red;
-            font-size: 12px;
+
+        .errorlist li {
+            color: #ff4d4d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            list-style-type: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group .errorlist {
             margin-top: 5px;
+        }
+
+        .form-group input:invalid {
+            border-color: #ff4d4d;
         }
     </style>
 </head>
 
 <body>
     <h2>Register</h2>
-    <form method="post">
+    <form method="post" class="register">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="submit">Register</button>
-        <p>Have an account? <a href="{% url 'login' %}">Login</a></p>
+        <p>Have an account? <a href="{% url 'login' %}" class="link">Login</a></p>
     </form>
 </body>
 

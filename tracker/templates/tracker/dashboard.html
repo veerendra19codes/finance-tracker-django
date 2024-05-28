@@ -3,6 +3,80 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
+<style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        /* Use Roboto font */
+        background-color: #181818;
+        /* Slightly lighter dark background */
+        color: #e0e0e0;
+        /* Light text color for contrast */
+    }
+
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        /* White color for the heading */
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .summary-cards {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .summary-card {
+        background-color: #1e1e1e;
+        /* Dark background for cards */
+        border: 1px solid #333;
+        /* Border color */
+        padding: 1rem;
+        width: 30%;
+        margin: 10px;
+        border-radius: 10px;
+        text-align: center;
+        color: #e0e0e0;
+        /* Light text color for contrast */
+        transition: background-color 0.3s ease;
+    }
+
+    .summary-card h3 {
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    .summary-card p {
+        font-size: 1.2em;
+    }
+
+    .summary-card:hover {
+        background-color: #2e2e2e;
+        /* Slightly lighter on hover */
+    }
+
+    .chart-container {
+        background-color: #1e1e1e;
+        /* Dark background for charts */
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        color: #e0e0e0;
+    }
+
+    .chart-container h3 {
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+        .summary-card {
+            width: 100%;
+        }
+    }
+</style>
 <h2>Dashboard</h2>
 <div>
     <!-- Summary Cards -->

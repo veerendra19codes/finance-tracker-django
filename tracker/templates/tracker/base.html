@@ -33,6 +33,13 @@
         #logout-form {
             background-color: red;
             color: white;
+            cursor: pointer;
+        }
+
+        #logout {
+            background-color: red;
+            color: white;
+            cursor: pointer;
         }
 
         .btn {
@@ -60,7 +67,7 @@
         <a href="{% url 'add_budget' %}">Add Budget</a>
         <a href="{% url 'budget_progress' %}">Budget Progress</a>
         {% if user.is_authenticated %}
-        <form action="{% url 'logout' %}" method="post" id="logout-form">
+        <form action="{% url 'logout' %}" method="post" id="logout-form" class="logout">
             {% csrf_token %}
             <button type="submit" class="btn">Logout</button>
         </form>

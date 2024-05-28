@@ -4,8 +4,22 @@
 
 {% block content %}
 <style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        /* Use Roboto font */
+        background-color: #181818;
+        /* Slightly lighter dark background */
+        color: #e0e0e0;
+        /* Light text color for contrast */
+        padding: 20px;
+    }
+
     h2 {
         text-align: center;
+        color: #ffffff;
+        /* White color for the heading */
+        margin-bottom: 20px;
+        font-weight: 500;
     }
 
     ul {
@@ -19,38 +33,58 @@
 
     li {
         width: 350px;
-        height: 150px;
-        border: 2px solid gray;
+        height: 200px;
+        border: 2px solid #6a1b9a;
+        /* Dark border */
         border-radius: 10px;
-        padding: 10px 10px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background-color: #1e1e1e;
+        /* Dark background */
     }
 
-    li .buttons {
+    .item {
+        color: #e0e0e0;
+        /* Light text color for item details */
+        margin-bottom: 10px;
+    }
+
+    .buttons {
         display: flex;
         width: 100%;
         justify-content: space-between;
         gap: 10px;
     }
 
-    .edit-income-btn {
-        background-color: blue;
+    .edit-income-btn,
+    .delete-income-btn {
+        background-color: #1e88e5;
+        /* Blue color for buttons */
         border-radius: 10px;
         padding: 10px 0px;
         color: white;
         width: 45%;
         border: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     .delete-income-btn {
-        background-color: red;
-        border-radius: 10px;
-        padding: 10px 0px;
-        color: white;
-        width: 45%;
-        border: none;
+        background-color: #e53935;
+        /* Red color for delete button */
+    }
+
+    .edit-income-btn:hover {
+        background-color: #1565c0;
+        /* Darker blue/red on hover */
+    }
+
+    .delete-income-btn:hover {
+        background-color: rgb(235, 147, 147);
+        /* Darker blue/red on hover */
     }
 </style>
 <h2>All Incomes</h2>

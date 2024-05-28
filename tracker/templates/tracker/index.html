@@ -5,37 +5,110 @@
 {% block content %}
 <style>
     body {
-        padding: 0px 20px;
+        padding: 20px;
+        background-color: #121212;
+        /* Dark background color */
+        color: #e0e0e0;
+        /* Light text color for contrast */
+        font-family: 'Roboto', Arial, sans-serif;
+        /* Use Roboto font */
+        text-align: center;
     }
 
     h2 {
         text-align: center;
+        color: #ffffff;
+        /* White color for the heading */
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.2em;
+        /* Slightly larger text for better readability */
+        margin: 10px 0;
+    }
+
+    .summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .summary p {
+        flex: 1;
+        text-align: center;
+        margin: 10px;
+    }
+
+    .buttons {
+        text-align: center;
+    }
+
+    .add-income,
+    .add-expense {
+        border-radius: 10px;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px 5px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        font-weight: 500;
     }
 
     .add-income {
-        background-color: blue;
-        border-radius: 10px;
-        padding: 10px 20px;
-        color: white;
-        border: none;
-        text-decoration: none;
+        background-color: #1e88e5;
+        /* Blue color for income button */
+    }
 
+    .add-income:hover {
+        background-color: #1565c0;
+        /* Darker blue on hover */
     }
 
     .add-expense {
-        background-color: red;
-        border-radius: 10px;
-        padding: 10px 20px;
-        color: white;
-        border: none;
-        text-decoration: none;
+        background-color: #e53935;
+        /* Red color for expense button */
+    }
+
+    .add-expense:hover {
+        background-color: #c62828;
+        /* Darker red on hover */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .summary {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .summary p {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .add-income,
+        .add-expense {
+            width: 100%;
+            margin: 10px 0;
+        }
     }
 </style>
+
 <h2>Overall Summary</h2>
 <p>Total Income: Rs.{{ all_income }}</p>
 <p>Total Expenses: Rs.{{ all_expenses }}</p>
 <p>Total Savings: Rs.{{ all_savings }}</p>
-<a href="{% url 'add_income' %}" class="add-income">Add Income</a>
-<a href="{% url 'add_expense' %}" class="add-expense">Add Expense</a>
+<div>
+
+    <a href="{% url 'add_income' %}" class="add-income">Add Income</a>
+    <a href="{% url 'add_expense' %}" class="add-expense">Add Expense</a>
+</div>
 
 {% endblock %}
